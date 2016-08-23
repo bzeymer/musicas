@@ -5,9 +5,14 @@
  */
 package webServer.model;
 
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import static webServer.controller.ServidorRepositorio.json;
 
 /**
  *
@@ -34,4 +39,32 @@ public class Biblioteca implements Serializable {
         
         return null;
     }
+    
+    public static Biblioteca popular() {
+
+        String nomeArquivo = "biblioteca.json";
+        json = "";
+        String aux = null;
+        try {
+            
+            FileReader arquivo = new FileReader("dados/"+nomeArquivo);
+            BufferedReader lerArquivo = new BufferedReader(arquivo);
+
+            aux = lerArquivo.readLine();
+            while (aux != null) {
+                json = json + aux;
+
+                aux = lerArquivo.readLine();
+            }
+            arquivo.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
+                
+        Gson gson = new Gson();
+
+        return gson.fromJson(json, Biblioteca.class);
+    }
+    
 }

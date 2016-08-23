@@ -1,6 +1,7 @@
 package webServer.model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,20 +40,11 @@ public class Musica implements Serializable {
         return id;
     }
 
-    public String getArquivo() throws IOException {
+    public File getAudio() throws IOException {
 
-        String musica = "";
-
-        FileReader f = new FileReader(this.nomeArquivo);
-        BufferedReader fin = new BufferedReader(f);
-        String aux = fin.readLine();
-        while (aux != null) {
-
-            musica.concat(aux);
-            aux = fin.readLine();
-        }
-
-        return musica;
+        File audio = new File("dados/musicas/"+this.nomeArquivo);
+        
+        return audio;
     }
 
 }
