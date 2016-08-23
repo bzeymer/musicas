@@ -20,6 +20,8 @@ public class repositorio {
 
     /**
      * Operação de Web service
+     * @param id
+     * @return AudioInputStream
      */
     @WebMethod(operationName = "baixarMusica")
     public AudioInputStream baixarMusica(@WebParam(name = "id") Integer id) {
