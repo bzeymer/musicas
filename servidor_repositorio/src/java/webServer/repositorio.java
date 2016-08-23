@@ -1,29 +1,23 @@
 package webServer;
 
+import webServer.controller.ServidorRepositorio;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.ejb.Stateless;
-import model.Musica;
+import webServer.model.Biblioteca;
+import webServer.model.Musica;
 
 @WebService(serviceName = "repositorio")
-@Stateless()
-public class repositorio {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
+public class repositorio {
 
     /**
      * Operação de Web service
      */
-    @WebMethod(operationName = "buscarMusicaPorNome")
-    public Musica buscarMusicaPorNome(@WebParam(name = "nomeMusica") String nomeMusica) {
-        //TODO write your implementation code here:
-        return null;
+    @WebMethod(operationName = "baixarMusica")
+    public String baixarMusica(@WebParam(name = "id") Integer id) {
+
+     
+        return ServidorRepositorio.baixarMusica(id);
     }
 }
