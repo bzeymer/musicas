@@ -1,14 +1,9 @@
 package webServer.model;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
 
 public class Musica implements Serializable {
 
@@ -40,9 +35,26 @@ public class Musica implements Serializable {
         return id;
     }
 
-    public File getAudio() throws IOException {
+    public String getAudio() {
 
-        File audio = new File("dados/musicas/"+this.nomeArquivo);
+        String audio = "";
+        String aux = null;
+        try {
+            
+            FileReader arquivo = new FileReader("dados/musicas/"+this.nomeArquivo);
+            BufferedReader lerArquivo = new BufferedReader(arquivo);
+
+            aux = lerArquivo.readLine();
+            while (aux != null) {
+                audio = audio + aux + "\n";
+
+                aux = lerArquivo.readLine();
+            }
+            arquivo.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
         
         return audio;
     }

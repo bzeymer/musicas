@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import static webServer.controller.ServidorRepositorio.json;
 
 /**
  *
@@ -43,7 +42,7 @@ public class Biblioteca implements Serializable {
     public static Biblioteca popular() {
 
         String nomeArquivo = "biblioteca.json";
-        json = "";
+        String json = "";
         String aux = null;
         try {
             

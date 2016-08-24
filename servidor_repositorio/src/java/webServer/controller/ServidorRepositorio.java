@@ -7,12 +7,6 @@ package webServer.controller;
 
 import webServer.model.Biblioteca;
 import com.google.gson.Gson;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.ws.rs.NotFoundException;
 import webServer.model.Musica;
 
@@ -20,12 +14,11 @@ import webServer.model.Musica;
  *
  * @author Breno
  */
-public class ServidorRepositorio extends BaseController {
+public class ServidorRepositorio {
 
     public static Biblioteca biblioteca = new Biblioteca();
-    public static String json = "";
 
-    public static AudioInputStream getMusica(Biblioteca biblioteca, Integer id) throws UnsupportedAudioFileException, IOException {
+    public static String getMusica(Biblioteca biblioteca, Integer id) {
 
         if (id == null) {
             throw new IllegalArgumentException("É necessário um id para buscar a música.");
@@ -38,24 +31,26 @@ public class ServidorRepositorio extends BaseController {
             throw new NotFoundException("A música com esse id não foi encontrada.");
         }
         
-        AudioInputStream arquivo = AudioSystem.getAudioInputStream(musica.getAudio());
+        String arquivo = musica.getAudio();
            
         return arquivo;
     }
 
-    public static AudioInputStream baixarMusica(Integer id) throws UnsupportedAudioFileException, IOException {
+    public static String baixarMusica(Integer id) {
 
         biblioteca = Biblioteca.popular();
         
-        AudioInputStream musica = getMusica(biblioteca, id);
+        String musica = getMusica(biblioteca, id);
 
         return musica;
     }
 
-    public static void criaJson() {
-                     
+    public static String listarMusicas() {
+        
+        biblioteca = Biblioteca.popular();
+        
         Gson gson = new Gson();
-        json = gson.toJson(biblioteca);
+        return gson.toJson(biblioteca);
     }
     
 
