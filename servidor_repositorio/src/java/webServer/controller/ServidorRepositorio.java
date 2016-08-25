@@ -7,6 +7,8 @@ package webServer.controller;
 
 import webServer.model.Biblioteca;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.lang.reflect.Modifier;
 import javax.ws.rs.NotFoundException;
 import webServer.model.Musica;
 
@@ -18,29 +20,29 @@ public class ServidorRepositorio {
 
     public static Biblioteca biblioteca = new Biblioteca();
 
-    public static String getMusica(Biblioteca biblioteca, Integer id) {
+    public static String getMusica(Biblioteca biblioteca, String nome) {
 
-        if (id == null) {
-            throw new IllegalArgumentException("É necessário um id para buscar a música.");
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("É necessário um nome para buscar a música.");
         }
 
-        Musica musica = biblioteca.getMusica(id);
+        Musica musica = biblioteca.getMusica(nome);
 
         if (musica == null) {
 
-            throw new NotFoundException("A música com esse id não foi encontrada.");
+            throw new NotFoundException("A música com esse nome não foi encontrada.");
         }
         
-        String json = "{\"musica\":{\"id\":"+musica.getId()+",\"nome\":\""+musica.getNome()+"\",\"artista\":\""+musica.getArtista()+"\",\"audio\":\""+musica.getAudio()+"\"}}";
+        String json = "{\"musica\":{\"nome\":\""+musica.getNome()+"\",\"artista\":\""+musica.getArtista()+"\",\"audio\":\""+musica.getAudio()+"\"}}";
         
         return json;
     }
 
-    public static String baixarMusica(Integer id) {
+    public static String baixarMusica(String nome) {
 
         biblioteca = Biblioteca.popular();
         
-        String musica = getMusica(biblioteca, id);
+        String musica = getMusica(biblioteca, nome);
 
         return musica;
     }
@@ -49,7 +51,9 @@ public class ServidorRepositorio {
         
         biblioteca = Biblioteca.popular();
         
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT).create();
         return gson.toJson(biblioteca.musicas);
     }
+    
+    
 }

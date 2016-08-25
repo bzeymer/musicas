@@ -25,11 +25,11 @@ public class Biblioteca implements Serializable {
         return musicas;
     }
 
-    public Musica getMusica(Integer id) {
+    public Musica getMusica(String nome) {
         
         for (Musica musica : this.musicas) {
             
-            if (musica.getId() == id) {
+            if (musica.getNome().equals(nome)) {
                 
                 return musica;
             }

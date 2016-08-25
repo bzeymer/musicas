@@ -7,14 +7,12 @@ import java.io.Serializable;
 
 public class Musica implements Serializable {
 
-    private Integer id;
     private String nome;
     private String artista;
-    private String nomeArquivo;
+    private transient String nomeArquivo;
 
     
     public Musica(String x) {
-        this.id = Integer.parseInt(x);
         this.nome = x;
         this.artista = x;
         this.nomeArquivo = x;
@@ -29,10 +27,6 @@ public class Musica implements Serializable {
 
     public String getNomeArquivo() {
         return nomeArquivo;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getAudio() {

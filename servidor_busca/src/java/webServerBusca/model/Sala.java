@@ -14,26 +14,16 @@ import java.util.LinkedList;
  */
 public class Sala implements Serializable{
 
-    private Integer id;
     private String nomeSala;
     private LinkedList<Musica> playlist;
     private Musica musicaAtual;
     private transient String senha;
 
-    public Sala(Integer id, String nomeSala, LinkedList<Musica> playlist, Musica musicaAtual, String senha) {
-        this.id = id;
+    public Sala(String nomeSala, LinkedList<Musica> playlist, Musica musicaAtual, String senha) {
         this.nomeSala = nomeSala;
         this.playlist = playlist;
         this.musicaAtual = musicaAtual;
         this.senha = senha;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNomeSala() {

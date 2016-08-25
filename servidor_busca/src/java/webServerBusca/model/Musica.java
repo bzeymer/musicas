@@ -13,19 +13,13 @@ import java.io.Serializable;
  */
 public class Musica implements Serializable {
 
-    private Integer id;
     private String nome;
     private String artista;
     private String audio;
     
     public Musica(String x) {
-        this.id = Integer.parseInt(x);
         this.nome = x;
         this.artista = x;
-    }
-    
-    public Integer getId() {
-        return id;
     }
     
     public String getNome() {

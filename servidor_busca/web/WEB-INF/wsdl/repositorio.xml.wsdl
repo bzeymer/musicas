@@ -4,31 +4,31 @@
 <xsd:import namespace="http://webServer/" schemaLocation="http://localhost:8080/servidor_repositorio/repositorio?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="baixarMusica">
-<part name="parameters" element="tns:baixarMusica"/>
-</message>
-<message name="baixarMusicaResponse">
-<part name="parameters" element="tns:baixarMusicaResponse"/>
-</message>
 <message name="listarMusicas">
 <part name="parameters" element="tns:listarMusicas"/>
 </message>
 <message name="listarMusicasResponse">
 <part name="parameters" element="tns:listarMusicasResponse"/>
 </message>
+<message name="buscarMusica">
+<part name="parameters" element="tns:buscarMusica"/>
+</message>
+<message name="buscarMusicaResponse">
+<part name="parameters" element="tns:buscarMusicaResponse"/>
+</message>
 <portType name="repositorio">
-<operation name="baixarMusica">
-<input wsam:Action="http://webServer/repositorio/baixarMusicaRequest" message="tns:baixarMusica"/>
-<output wsam:Action="http://webServer/repositorio/baixarMusicaResponse" message="tns:baixarMusicaResponse"/>
-</operation>
 <operation name="listarMusicas">
 <input wsam:Action="http://webServer/repositorio/listarMusicasRequest" message="tns:listarMusicas"/>
 <output wsam:Action="http://webServer/repositorio/listarMusicasResponse" message="tns:listarMusicasResponse"/>
 </operation>
+<operation name="buscarMusica">
+<input wsam:Action="http://webServer/repositorio/buscarMusicaRequest" message="tns:buscarMusica"/>
+<output wsam:Action="http://webServer/repositorio/buscarMusicaResponse" message="tns:buscarMusicaResponse"/>
+</operation>
 </portType>
 <binding name="repositorioPortBinding" type="tns:repositorio">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="baixarMusica">
+<operation name="listarMusicas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -37,7 +37,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listarMusicas">
+<operation name="buscarMusica">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

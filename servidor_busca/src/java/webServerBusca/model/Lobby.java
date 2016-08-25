@@ -25,6 +25,11 @@ public class Lobby {
     public Sala getSalaAtiva() {
         return salaAtiva;
     }
+
+    public void setSalaAtiva(Sala salaAtiva) {
+        this.salaAtiva = salaAtiva;
+    }
+    
     
     public void addSala(Sala sala) {
         
@@ -35,7 +40,7 @@ public class Lobby {
         
         for (Sala sala : this.salas) {
             
-            if (sala.getId().equals(salaEntrada.getId())) {
+            if (sala.getNomeSala().equals(salaEntrada.getNomeSala())) {
                 
                 salaAtiva = sala;
                 return true;
