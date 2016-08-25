@@ -31,9 +31,9 @@ public class ServidorRepositorio {
             throw new NotFoundException("A música com esse id não foi encontrada.");
         }
         
-        String arquivo = musica.getAudio();
-           
-        return arquivo;
+        String json = "{\"musica\":{\"id\":"+musica.getId()+",\"nome\":\""+musica.getNome()+"\",\"artista\":\""+musica.getArtista()+"\",\"audio\":\""+musica.getAudio()+"\"}}";
+        
+        return json;
     }
 
     public static String baixarMusica(Integer id) {
@@ -50,8 +50,6 @@ public class ServidorRepositorio {
         biblioteca = Biblioteca.popular();
         
         Gson gson = new Gson();
-        return gson.toJson(biblioteca);
+        return gson.toJson(biblioteca.musicas);
     }
-    
-
 }
