@@ -85,4 +85,22 @@ public class controlador {
         
         return ServidorBusca.addSala(nomeSala, senha);
     }
+
+    /**
+     * Operação de Web service
+     */
+    @WebMethod(operationName = "teste")
+    public String teste(@WebParam(name = "nomeMusica") String nomeMusica) {
+        
+        return ServidorBusca.testeMusica(nomeMusica);
+    }
+
+    /**
+     * Operação de Web service
+     */
+    @WebMethod(operationName = "mostrarPlaylist")
+    public String mostrarPlaylist() {
+        
+        return ServidorBusca.showPlaylist();
+    }
 }

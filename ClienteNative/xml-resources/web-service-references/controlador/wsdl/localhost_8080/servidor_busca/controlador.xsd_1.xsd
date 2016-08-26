@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://webServerBusca/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webServerBusca/">
+
+<xs:element name="adicionarMusica" type="tns:adicionarMusica"/>
+
+<xs:element name="adicionarMusicaResponse" type="tns:adicionarMusicaResponse"/>
+
+<xs:element name="adicionarSala" type="tns:adicionarSala"/>
+
+<xs:element name="adicionarSalaResponse" type="tns:adicionarSalaResponse"/>
+
+<xs:element name="conectar" type="tns:conectar"/>
+
+<xs:element name="conectarResponse" type="tns:conectarResponse"/>
+
+<xs:element name="listarMusicas" type="tns:listarMusicas"/>
+
+<xs:element name="listarMusicasResponse" type="tns:listarMusicasResponse"/>
+
+<xs:element name="listarSalas" type="tns:listarSalas"/>
+
+<xs:element name="listarSalasResponse" type="tns:listarSalasResponse"/>
+
+<xs:element name="mostrarPlaylist" type="tns:mostrarPlaylist"/>
+
+<xs:element name="mostrarPlaylistResponse" type="tns:mostrarPlaylistResponse"/>
+
+<xs:element name="play" type="tns:play"/>
+
+<xs:element name="playResponse" type="tns:playResponse"/>
+
+<xs:element name="stop" type="tns:stop"/>
+
+<xs:element name="stopResponse" type="tns:stopResponse"/>
+
+<xs:element name="teste" type="tns:teste"/>
+
+<xs:element name="testeResponse" type="tns:testeResponse"/>
+
+<xs:complexType name="play">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="playResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="teste">
+<xs:sequence>
+<xs:element name="nomeMusica" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="testeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stop">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="stopResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarSalas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarSalasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarPlaylist">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="mostrarPlaylistResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="conectar">
+<xs:sequence>
+<xs:element name="sala" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="conectarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adicionarMusica">
+<xs:sequence>
+<xs:element name="musica" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adicionarMusicaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarMusicas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarMusicasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adicionarSala">
+<xs:sequence>
+<xs:element name="nomeSala" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adicionarSalaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

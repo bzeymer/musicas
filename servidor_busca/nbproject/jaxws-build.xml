@@ -45,8 +45,8 @@
     </target>
     <target name="wsimport-client-repositorio" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/repositorio"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/repositorio" destdir="${build.generated.dir}/jax-wsCache/repositorio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/repositorio/wsdl/repositorio.xml.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/C:/Users/Breno/Documents/SD/musicas/servidor_busca/repositorio.xml" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/repositorio/wsdl/repositorio.xml.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/repositorio" destdir="${build.generated.dir}/jax-wsCache/repositorio" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/repositorio/wsdl/192.168.43.188_8080/servidor_repositorio/repositorio.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.43.188:8080/servidor_repositorio/repositorio?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/repositorio/wsdl/192.168.43.188_8080/servidor_repositorio/repositorio.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/repositorio"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">

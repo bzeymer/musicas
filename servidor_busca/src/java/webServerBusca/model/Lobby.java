@@ -36,11 +36,11 @@ public class Lobby {
         this.salas.add(sala);
     }
 
-    public Boolean autenticar(Sala salaEntrada) {
+    public Boolean autenticar(Sala salaEntrada, String senha) {
         
         for (Sala sala : this.salas) {
             
-            if (sala.getNomeSala().equals(salaEntrada.getNomeSala())) {
+            if (sala.getNomeSala().equals(salaEntrada.getNomeSala()) && sala.getSenha().equals(senha)) {
                 
                 salaAtiva = sala;
                 return true;
@@ -49,6 +49,19 @@ public class Lobby {
         
         salaAtiva = null;
         return false;
+    }
+
+    public Sala buscarSala(String jsonSala) {
+        
+        for (Sala sala : this.salas) {
+            
+            if (sala.getNomeSala().equals(jsonSala)) {
+                
+                return sala;
+            }
+        }
+        
+        return null;
     }
     
     

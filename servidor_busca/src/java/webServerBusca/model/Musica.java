@@ -17,11 +17,6 @@ public class Musica implements Serializable {
     private String artista;
     private String audio;
     
-    public Musica(String x) {
-        this.nome = x;
-        this.artista = x;
-    }
-    
     public String getNome() {
         return nome;
     }

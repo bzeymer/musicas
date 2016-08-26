@@ -14,6 +14,8 @@ import java.util.LinkedList;
  */
 public class Sala implements Serializable{
 
+    
+
     private String nomeSala;
     private LinkedList<Musica> playlist;
     private Musica musicaAtual;
@@ -57,7 +59,15 @@ public class Sala implements Serializable{
     
     public void nextTrack() {
         
-        this.musicaAtual = this.playlist.removeFirst();
+        if (!this.playlist.isEmpty()){
+            this.musicaAtual = this.playlist.removeFirst();
+        } else {
+            this.musicaAtual = null;
+        }
+    }
+
+    public String getSenha() {
+        return senha;
     }
     
     

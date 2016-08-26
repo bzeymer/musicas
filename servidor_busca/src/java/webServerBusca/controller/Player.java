@@ -5,14 +5,6 @@
  */
 package webServerBusca.controller;
 
-import com.sun.media.sound.JavaSoundAudioClip;
-import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import webServerBusca.model.Musica;
 import webServerBusca.model.Sala;
 
@@ -21,30 +13,34 @@ import webServerBusca.model.Sala;
  * @author Breno
  */
 public class Player implements Runnable {
-    public void run(){
-        
-        Boolean continua = true;
+
+    public void run() {
+
         Sala sala = ServidorBusca.lobby.getSalaAtiva();
-        String audio = sala.getMusicaAtual().getAudio();
-        
-        while (audio != null && continua) {
-            
-            String frases[] = audio.split("\n");
-             
-            for (String frase : frases) {
-                System.out.println(frase);
-                try {
-                    Thread.sleep(750);
-                } catch (InterruptedException ex) {
-                    continua = false;
-                    break;
+        sala.nextTrack();
+        Musica musica = sala.getMusicaAtual();
+        String audio = musica.getAudio();
+        try {
+            while (musica != null) {
+
+                String frases[] = audio.split("\n");
+
+                for (String frase : frases) {
+                    System.out.println(frase);
+
+                    Thread.sleep(500);
                 }
+
+                sala.nextTrack();
+                musica = sala.getMusicaAtual();
+                audio = musica.getAudio();
             }
             
-            sala.nextTrack();
-            audio = sala.getMusicaAtual().getAudio();
-        }    
-        
+            return;
+        } catch (InterruptedException ex) {
+            return;
+        }
+
     }
-    
+
 }

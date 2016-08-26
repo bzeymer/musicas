@@ -38,9 +38,10 @@ public class ServidorBusca {
 
         Gson gson = new Gson();
 
-        Sala sala = gson.fromJson(jsonSala, Sala.class);
+        Sala sala = lobby.buscarSala(jsonSala);
+        //Sala sala = gson.fromJson(jsonSala, Sala.class);
 
-        if (!lobby.autenticar(sala)) {
+        if (!lobby.autenticar(sala, senha)) {
 
             return "Senha inválida.";
         }
@@ -49,6 +50,11 @@ public class ServidorBusca {
         return todasMusicas();
     }
 
+    public static String testeMusica(String nomeMusica) {
+        
+        return buscarMusica(nomeMusica);
+    }
+    
     public static String addMusica(String nomeMusica) {
         
         if (!autenticado) {
@@ -72,7 +78,19 @@ public class ServidorBusca {
         lobby.addSala(sala);
         lobby.setSalaAtiva(sala);
         
-        return "Sala adicionada.";
+        autenticado = true;
+        return todasMusicas();
+    }
+    
+    public static String showPlaylist() {
+        if (!autenticado) {
+            
+            return "Autentique-se primeiro.";
+        }
+        
+        Gson gson = new Gson();
+               
+        return gson.toJson(lobby.getSalaAtiva().getPlaylist());
     }
 
     public static String play(Thread tPlayer, Player player) {

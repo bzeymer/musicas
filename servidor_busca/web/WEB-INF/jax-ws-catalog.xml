@@ -4,4 +4,6 @@
     <system systemId="file:/C:/Users/Breno/Documents/SD/musicas/servidor_busca/Repositorio_schema1.xsd" uri="src/conf/xml-resources/web-services/repositorio1/wsdl/Repositorio_schema1.xsd"/>
     <system systemId="file:/C:/Users/Breno/Documents/SD/musicas/servidor_busca/repositorio.xml" uri="wsdl/repositorio.xml.wsdl"/>
     <system systemId="http://localhost:8080/servidor_repositorio/repositorio?xsd=1" uri="wsdl/localhost_8080/servidor_repositorio/repositorio.xsd_1.xsd"/>
+    <system systemId="http://192.168.43.188:8080/servidor_repositorio/repositorio?WSDL" uri="wsdl/192.168.43.188_8080/servidor_repositorio/repositorio.wsdl"/>
+    <system systemId="http://192.168.43.188:8080/servidor_repositorio/repositorio?xsd=1" uri="wsdl/192.168.43.188_8080/servidor_repositorio/repositorio.xsd_1.xsd"/>
 </catalog>
